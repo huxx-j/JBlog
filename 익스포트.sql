@@ -1,0 +1,361 @@
+--------------------------------------------------------
+--  파일이 생성됨 - 월요일-5월-14-2018   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Sequence SEQ_CATEGORY_NO
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "JBLOG"."SEQ_CATEGORY_NO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 NOCACHE  NOORDER  NOCYCLE   ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_COMMENTS_NO
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "JBLOG"."SEQ_COMMENTS_NO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 34 NOCACHE  NOORDER  NOCYCLE   ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_POST_NO
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "JBLOG"."SEQ_POST_NO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 101 NOCACHE  NOORDER  NOCYCLE   ;
+--------------------------------------------------------
+--  DDL for Sequence SEQ_USERS_NO
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "JBLOG"."SEQ_USERS_NO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 42 NOCACHE  NOORDER  NOCYCLE   ;
+--------------------------------------------------------
+--  DDL for Table BLOG
+--------------------------------------------------------
+
+  CREATE TABLE "JBLOG"."BLOG" 
+   (	"ID" VARCHAR2(50 BYTE), 
+	"BLOGTITLE" VARCHAR2(200 BYTE), 
+	"LOGOFILE" VARCHAR2(200 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table CATEGORY
+--------------------------------------------------------
+
+  CREATE TABLE "JBLOG"."CATEGORY" 
+   (	"CATENO" NUMBER, 
+	"ID" VARCHAR2(50 BYTE), 
+	"CATENAME" VARCHAR2(200 BYTE), 
+	"DESCRIPTION" VARCHAR2(500 BYTE), 
+	"REGDATE" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table COMMENTS
+--------------------------------------------------------
+
+  CREATE TABLE "JBLOG"."COMMENTS" 
+   (	"CMTNO" NUMBER, 
+	"POSTNO" NUMBER, 
+	"USERNO" NUMBER, 
+	"CMTCONTENT" VARCHAR2(1000 BYTE), 
+	"REGDATE" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table POST
+--------------------------------------------------------
+
+  CREATE TABLE "JBLOG"."POST" 
+   (	"POSTNO" NUMBER, 
+	"CATENO" NUMBER, 
+	"POSTTITLE" VARCHAR2(300 BYTE), 
+	"POSTCONTENT" VARCHAR2(4000 BYTE), 
+	"REGDATE" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table USERS
+--------------------------------------------------------
+
+  CREATE TABLE "JBLOG"."USERS" 
+   (	"USERNO" NUMBER, 
+	"ID" VARCHAR2(50 BYTE), 
+	"USERNAME" VARCHAR2(100 BYTE), 
+	"PASSWORD" VARCHAR2(50 BYTE), 
+	"JOINDATE" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+REM INSERTING into JBLOG.BLOG
+SET DEFINE OFF;
+Insert into JBLOG.BLOG (ID,BLOGTITLE,LOGOFILE) values ('test','test의 블로그 입니다.','default');
+Insert into JBLOG.BLOG (ID,BLOGTITLE,LOGOFILE) values ('a','장성우의 블로그 입니다.','default');
+Insert into JBLOG.BLOG (ID,BLOGTITLE,LOGOFILE) values ('test1','test1의 블로그 입니다.','default');
+Insert into JBLOG.BLOG (ID,BLOGTITLE,LOGOFILE) values ('jason','김재선의 블로그 입니다.','default');
+Insert into JBLOG.BLOG (ID,BLOGTITLE,LOGOFILE) values ('asd','asd의 블로그 입니다.','default');
+Insert into JBLOG.BLOG (ID,BLOGTITLE,LOGOFILE) values ('huxx','huxx의 블로그 입니다.','huxx_logo.jpg');
+Insert into JBLOG.BLOG (ID,BLOGTITLE,LOGOFILE) values ('qwe','쿄쿄쿄','qwe_logo.gif');
+REM INSERTING into JBLOG.CATEGORY
+SET DEFINE OFF;
+Insert into JBLOG.CATEGORY (CATENO,ID,CATENAME,DESCRIPTION,REGDATE) values (38,'test1','미분류','기본으로 만들어지는 카테고리 입니다.',to_date('18/05/13','RR/MM/DD'));
+Insert into JBLOG.CATEGORY (CATENO,ID,CATENAME,DESCRIPTION,REGDATE) values (39,'a','미분류','기본으로 만들어지는 카테고리 입니다.',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.CATEGORY (CATENO,ID,CATENAME,DESCRIPTION,REGDATE) values (37,'test','미분류','기본으로 만들어지는 카테고리 입니다.',to_date('18/05/13','RR/MM/DD'));
+Insert into JBLOG.CATEGORY (CATENO,ID,CATENAME,DESCRIPTION,REGDATE) values (40,'a','Test','Test 카테고리 입니다.',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.CATEGORY (CATENO,ID,CATENAME,DESCRIPTION,REGDATE) values (36,'jason','미분류','기본으로 만들어지는 카테고리 입니다.',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.CATEGORY (CATENO,ID,CATENAME,DESCRIPTION,REGDATE) values (29,'qwe','사진','사진!',to_date('18/05/09','RR/MM/DD'));
+Insert into JBLOG.CATEGORY (CATENO,ID,CATENAME,DESCRIPTION,REGDATE) values (30,'qwe','Spring','스프링',to_date('18/05/09','RR/MM/DD'));
+Insert into JBLOG.CATEGORY (CATENO,ID,CATENAME,DESCRIPTION,REGDATE) values (3,'qwe','미분류','기본카테고리',to_date('18/05/09','RR/MM/DD'));
+Insert into JBLOG.CATEGORY (CATENO,ID,CATENAME,DESCRIPTION,REGDATE) values (31,'asd','미분류','기본으로 만들어지는 카테고리 입니다.',to_date('18/05/09','RR/MM/DD'));
+Insert into JBLOG.CATEGORY (CATENO,ID,CATENAME,DESCRIPTION,REGDATE) values (32,'huxx','미분류','기본으로 만들어지는 카테고리 입니다.',to_date('18/05/10','RR/MM/DD'));
+Insert into JBLOG.CATEGORY (CATENO,ID,CATENAME,DESCRIPTION,REGDATE) values (33,'huxx','spring','spring 관련 카테고리',to_date('18/05/10','RR/MM/DD'));
+REM INSERTING into JBLOG.COMMENTS
+SET DEFINE OFF;
+Insert into JBLOG.COMMENTS (CMTNO,POSTNO,USERNO,CMTCONTENT,REGDATE) values (23,33,36,'dfsdf',to_date('18/05/13','RR/MM/DD'));
+Insert into JBLOG.COMMENTS (CMTNO,POSTNO,USERNO,CMTCONTENT,REGDATE) values (33,100,41,'낙서장입니다',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.COMMENTS (CMTNO,POSTNO,USERNO,CMTCONTENT,REGDATE) values (24,33,36,'sdf',to_date('18/05/13','RR/MM/DD'));
+Insert into JBLOG.COMMENTS (CMTNO,POSTNO,USERNO,CMTCONTENT,REGDATE) values (31,45,41,'안녕하세요',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.COMMENTS (CMTNO,POSTNO,USERNO,CMTCONTENT,REGDATE) values (32,94,41,'맙소사',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.COMMENTS (CMTNO,POSTNO,USERNO,CMTCONTENT,REGDATE) values (12,16,37,'이 편지는..',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.COMMENTS (CMTNO,POSTNO,USERNO,CMTCONTENT,REGDATE) values (13,3,34,'아하하하하하하',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.COMMENTS (CMTNO,POSTNO,USERNO,CMTCONTENT,REGDATE) values (5,16,36,'잘 됩니다.',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.COMMENTS (CMTNO,POSTNO,USERNO,CMTCONTENT,REGDATE) values (6,16,34,'나도 잘된다',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.COMMENTS (CMTNO,POSTNO,USERNO,CMTCONTENT,REGDATE) values (11,15,36,'asd',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.COMMENTS (CMTNO,POSTNO,USERNO,CMTCONTENT,REGDATE) values (10,16,35,'asd',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.COMMENTS (CMTNO,POSTNO,USERNO,CMTCONTENT,REGDATE) values (21,29,36,'sdfsdf',to_date('18/05/11','RR/MM/DD'));
+REM INSERTING into JBLOG.POST
+SET DEFINE OFF;
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (17,3,'asd','asdasd',to_date('18/05/10','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (30,33,'asfad','fdsfsdf',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (31,33,'sdfsdf','sdfsdf',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (32,33,'sdfsdf','sdfsdfsdf',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (33,33,'sdfsdf','sdfsdfsdf',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (34,33,'sdfsdf','sdfsdfsdf',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (35,33,'sdfsdf','sdfsdfsdf',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (36,33,'sdfsdfsdf','sdfsdfsdf',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (37,33,'sdfsdfsdf','sdfsdfsdf',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (38,33,'sdfsdfsdf','sdfsdfsdf',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (39,33,'bvZvCVxcv',null,to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (40,33,'xzcvxzcvzxcv','cvxczvxzcv',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (41,33,'zxcvzxcvz','xcvxzcvzxcv',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (42,33,'zxcvzxcvzxcv','zxcvxzcvzxvc',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (43,33,'zxcvzxcvzxcv','xzcvzxcvzv',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (44,37,'asdasd','asd',to_date('18/05/13','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (45,40,'2123123','123123123',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (46,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (47,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (48,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (49,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (50,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (51,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (52,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (53,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (54,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (55,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (56,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (57,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (58,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (59,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (60,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (61,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (62,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (63,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (64,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (65,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (66,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (67,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (68,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (69,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (70,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (71,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (72,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (73,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (74,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (75,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (76,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (77,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (78,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (79,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (80,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (81,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (82,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (83,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (84,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (85,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (86,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (87,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (88,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (89,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (90,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (91,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (92,40,'반복생성','반복생성',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (96,39,'ㅇㄹㅎ','ㅇㄹㅎ',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (94,40,'아시아나 여객기 사고 영상 공개, 사고 현장 생생히 확인 가능','유튜브에는 당시 사고 장면을 담은 17초짜리 동영상이 올라왔다. 보도 직후 고조된 관심은 영상에까지 
+옮아가고 있는 추세다.
+
+영상을 보면 대기 중인 여객기 뒤로 아시아나 항공 여객기가 이동하는 모습이 보인다. 
+두 여객기 거리가 얼마 되지 않음에도 불구하고 아시아나 여객기는 목적지를 향해 움직이는 
+모습을 확인할 수 있다.',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (95,39,'ㅇㄹㅎㅇㄹㅎ','ㅇㄹㅎㅇㄹㅎ',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (97,39,'ㅇㄹㅎㄱㅅㄷㄱㅅ','ㄷ퓨튜',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (98,39,'3345','24525',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (99,39,'235235','435345345',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (100,39,'345345','345345
+4567567
+ㅎㄴㄴㄹㅇ
+ㅊㅍ ㅌㅊ퓨
+',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (1,29,'qwe','qwe',to_date('18/05/09','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (4,31,'asd','asdasd',to_date('18/05/09','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (6,31,'asd','asdasd',to_date('18/05/09','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (19,33,'이게최신일껄','ㄴㅇㄹㄴㅇㄹ',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (20,33,'weqwe','qweqwe',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (21,33,'qweqweqwe','qweqweqwe',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (22,33,'asdasdas','dasdasd',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (23,33,'zxczxczxczx','zxczxczxc',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (24,33,'1434234','234234',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (25,33,'asdas','dasdasda',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (26,33,'435345','34543535',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (27,33,'asdasd','asdasd',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (28,33,'zcvghgh','gdhfghfgh',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (29,33,'dfgdfgdf','gdfgdfgdfg',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (2,29,'qweqweqwe','qweqweqwe',to_date('18/05/09','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (3,30,'ㄴㅇㄴㅇㄹㄴ','ㅇㄹㄴㅇㄹㄴㅇㄹ',to_date('18/05/09','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (7,31,'asdasdasdasd','asdasdadasd',to_date('18/05/09','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (8,3,'qweqweqwe','qweqqweqwe',to_date('18/05/10','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (9,3,'미분류','미분류
+엔터
+엔터',to_date('18/05/10','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (10,3,'a미분ㄹㅍ','미분류
+ㅁ;분러
+ㄴ이마',to_date('18/05/10','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (11,3,'aㅣ분류','ㄴㅇㄹㄴㅇㄹ
+활허
+ㅓㅏㅎ러',to_date('18/05/10','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (12,33,'네','네
+네',to_date('18/05/10','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (13,32,'ㅁ','ㅁ',to_date('18/05/10','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (14,32,'ㅁㅇ','ㅇㅇ',to_date('18/05/10','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (15,33,'ㅁㄴㅇ','ㅁㄴㅇ',to_date('18/05/10','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (16,33,'스프링 1','123',to_date('18/05/10','RR/MM/DD'));
+Insert into JBLOG.POST (POSTNO,CATENO,POSTTITLE,POSTCONTENT,REGDATE) values (18,32,'미분류','미분류
+미분류',to_date('18/05/10','RR/MM/DD'));
+REM INSERTING into JBLOG.USERS
+SET DEFINE OFF;
+Insert into JBLOG.USERS (USERNO,ID,USERNAME,PASSWORD,JOINDATE) values (38,'test','test','123',to_date('18/05/13','RR/MM/DD'));
+Insert into JBLOG.USERS (USERNO,ID,USERNAME,PASSWORD,JOINDATE) values (40,'test1','test1','123',to_date('18/05/13','RR/MM/DD'));
+Insert into JBLOG.USERS (USERNO,ID,USERNAME,PASSWORD,JOINDATE) values (41,'a','장성우','a',to_date('18/05/14','RR/MM/DD'));
+Insert into JBLOG.USERS (USERNO,ID,USERNAME,PASSWORD,JOINDATE) values (37,'jason','김재선','123',to_date('18/05/11','RR/MM/DD'));
+Insert into JBLOG.USERS (USERNO,ID,USERNAME,PASSWORD,JOINDATE) values (36,'huxx','장성우','123',to_date('18/05/10','RR/MM/DD'));
+Insert into JBLOG.USERS (USERNO,ID,USERNAME,PASSWORD,JOINDATE) values (34,'qwe','qwe','qwe',to_date('18/05/09','RR/MM/DD'));
+Insert into JBLOG.USERS (USERNO,ID,USERNAME,PASSWORD,JOINDATE) values (35,'asd','asd','asd',to_date('18/05/09','RR/MM/DD'));
+--------------------------------------------------------
+--  Constraints for Table COMMENTS
+--------------------------------------------------------
+
+  ALTER TABLE "JBLOG"."COMMENTS" ADD PRIMARY KEY ("CMTNO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "JBLOG"."COMMENTS" MODIFY ("REGDATE" NOT NULL ENABLE);
+  ALTER TABLE "JBLOG"."COMMENTS" MODIFY ("CMTCONTENT" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table CATEGORY
+--------------------------------------------------------
+
+  ALTER TABLE "JBLOG"."CATEGORY" ADD PRIMARY KEY ("CATENO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "JBLOG"."CATEGORY" MODIFY ("REGDATE" NOT NULL ENABLE);
+  ALTER TABLE "JBLOG"."CATEGORY" MODIFY ("CATENAME" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table POST
+--------------------------------------------------------
+
+  ALTER TABLE "JBLOG"."POST" ADD PRIMARY KEY ("POSTNO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "JBLOG"."POST" MODIFY ("REGDATE" NOT NULL ENABLE);
+  ALTER TABLE "JBLOG"."POST" MODIFY ("POSTTITLE" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table USERS
+--------------------------------------------------------
+
+  ALTER TABLE "JBLOG"."USERS" ADD UNIQUE ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "JBLOG"."USERS" ADD PRIMARY KEY ("USERNO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "JBLOG"."USERS" MODIFY ("JOINDATE" NOT NULL ENABLE);
+  ALTER TABLE "JBLOG"."USERS" MODIFY ("PASSWORD" NOT NULL ENABLE);
+  ALTER TABLE "JBLOG"."USERS" MODIFY ("USERNAME" NOT NULL ENABLE);
+  ALTER TABLE "JBLOG"."USERS" MODIFY ("ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table BLOG
+--------------------------------------------------------
+
+  ALTER TABLE "JBLOG"."BLOG" ADD PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "JBLOG"."BLOG" MODIFY ("BLOGTITLE" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Ref Constraints for Table BLOG
+--------------------------------------------------------
+
+  ALTER TABLE "JBLOG"."BLOG" ADD CONSTRAINT "BLOG_ID_FK" FOREIGN KEY ("ID")
+	  REFERENCES "JBLOG"."USERS" ("ID") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table CATEGORY
+--------------------------------------------------------
+
+  ALTER TABLE "JBLOG"."CATEGORY" ADD CONSTRAINT "CATEGORY_ID_FK" FOREIGN KEY ("ID")
+	  REFERENCES "JBLOG"."BLOG" ("ID") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table COMMENTS
+--------------------------------------------------------
+
+  ALTER TABLE "JBLOG"."COMMENTS" ADD CONSTRAINT "COMMENT_POSTNO_FK" FOREIGN KEY ("POSTNO")
+	  REFERENCES "JBLOG"."POST" ("POSTNO") ENABLE;
+  ALTER TABLE "JBLOG"."COMMENTS" ADD CONSTRAINT "COMMENT_USERNO_FK" FOREIGN KEY ("USERNO")
+	  REFERENCES "JBLOG"."USERS" ("USERNO") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table POST
+--------------------------------------------------------
+
+  ALTER TABLE "JBLOG"."POST" ADD CONSTRAINT "POST_CATENO_FK" FOREIGN KEY ("CATENO")
+	  REFERENCES "JBLOG"."CATEGORY" ("CATENO") ENABLE;
