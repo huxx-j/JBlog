@@ -20,9 +20,9 @@
 			<div id="content" class="full-screen">
 				<input type="hidden" id="id" value="${authUser.id}">
 				<ul class="admin-menu">
-					<li><a href="/${authUser.id}/admin/basic">기본설정</a></li>
-					<li class="selected"><a href="/${authUser.id}/admin/category">카테고리</a></li>
-					<li><a href="/${authUser.id}/admin/write">글작성</a></li>
+					<li><a href="${pageContext.request.contextPath}/${authUser.id}/admin/basic">기본설정</a></li>
+					<li class="selected"><a href="${pageContext.request.contextPath}/${authUser.id}/admin/category">카테고리</a></li>
+					<li><a href="${pageContext.request.contextPath}/${authUser.id}/admin/write">글작성</a></li>
 				</ul>
 				
 		      	<table class="admin-cat">

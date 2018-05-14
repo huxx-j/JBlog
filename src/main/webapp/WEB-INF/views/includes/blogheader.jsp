@@ -9,17 +9,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- 블로그 해더 -->
 <div id="header">
-    <h1><a href="/${main.id}">${main.blogTitle}</a></h1>
+    <h1><a href="${pageContext.request.contextPath}/${main.id}">${main.blogTitle}</a></h1>
     <ul>
 
         <c:choose>
             <c:when test="${empty authUser}">
-                <li><a href="/user/login/${main.id}">로그인</a></li>
+                <li><a href="${pageContext.request.contextPath}/user/login/${main.id}">로그인</a></li>
             </c:when>
             <c:otherwise>
-                <li><a href="/user/logout/${main.id}">로그아웃</a></li>
+                <li><a href="${pageContext.request.contextPath}/user/logout/${main.id}">로그아웃</a></li>
                 <c:if test="${authUser.id == main.id}">
-                    <li><a href="/${authUser.id}/admin/basic">내블로그 관리</a></li>
+                    <li><a href="${pageContext.request.contextPath}/${authUser.id}/admin/basic">내블로그 관리</a></li>
                 </c:if>
 
             </c:otherwise>

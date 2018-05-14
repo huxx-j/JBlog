@@ -37,11 +37,11 @@
             <h4>_Post</h4>
             <div class="blog-content" style="height: 200px">
                 <c:choose>
-                    <c:when test="${!empty p}">
-                        <h4>${p.postTitle}</h4>
+                    <c:when test="${!empty post}">
+                        <h4>${post.postTitle}</h4>
                         <p>
-                        <pre>${p.postContent}
-                        <input type="hidden" id="pNo" value="${p.postNo}">
+                        <pre>${post.postContent}
+                        <input type="hidden" id="pNo" value="${post.postNo}">
                         </pre>
                         </p>
                     </c:when>
@@ -73,14 +73,14 @@
             </div>
 
             <c:choose>
-                <c:when test="${!empty authUser and !empty p}">
+                <c:when test="${!empty authUser and !empty post}">
                     <h4>_Comment</h4><br>
                     <table style="width: 97%; border: solid 1px black; border-radius: 5px; margin-left: 10px ">
                         <tr>
                             <td class="addCmtTbl" style="width: 10%" align="center">${authUser.userName}</td>
                             <td class="addCmtTbl" align="left">
                                 <input style="width: 99%" type="text" id="cmtContent" name="comment" value="">
-                                <input type="hidden" name="postNo" id="postNo" value="${p.postNo}">
+                                <input type="hidden" name="postNo" id="postNo" value="${post.postNo}">
                                 <input type="hidden" name="userNo" id="userNo" value="${authUser.userNo}">
                             </td>
                             <td class="addCmtTbl" style="width: 7%" align="center">
@@ -90,7 +90,7 @@
                     </table>
                 </c:when>
                 <c:otherwise>
-                    <c:if test="${!empty p}">
+                    <c:if test="${!empty post}">
                         <h4>_Comment</h4><br>
                         <table style="width: 97%; border: solid 1px black; border-radius: 5px; margin-left: 10px">
                             <tr>
@@ -107,13 +107,13 @@
             <br>
 
 
-            <c:if test="${!empty pl.list}">
+            <c:if test="${!empty postList.list}">
                 <h4>_Post List</h4>
                 <ul class="blog-list" style="border: solid 1px black; width: 97%; border-radius: 5px">
 
-                    <c:forEach items="${pl.list}" var="vo">
+                    <c:forEach items="${postList.list}" var="vo">
                         <li style="margin-top: 5px; margin-left: 10px">
-                            <a href="/${main.id}/${vo.cateNo}/post${vo.postNo}?crtPage=${param.crtPage}">${vo.postTitle}</a>
+                            <a href="${pageContext.request.contextPath}/${main.id}/${vo.cateNo}/post${vo.postNo}?crtPage=${param.crtPage}">${vo.postTitle}</a>
                             <span>${vo.regDate}</span>
                         </li>
                     </c:forEach>
@@ -138,17 +138,17 @@
 
                     <div class="pager">
                         <ul>
-                            <c:if test="${pl.prev}">
-                                <li><a href="/${main.id}/${pl.cateNo}?crtPage=${pl.startPageBtnNo-1}">◀</a></li>
+                            <c:if test="${postList.prev}">
+                                <li><a href="${pageContext.request.contextPath}/${main.id}/${postList.cateNo}?crtPage=${postList.startPageBtnNo-1}">◀</a></li>
                             </c:if>
 
-                            <c:forEach var="i" begin="${pl.startPageBtnNo}" end="${pl.endPageBtnNo}">
+                            <c:forEach var="i" begin="${postList.startPageBtnNo}" end="${postList.endPageBtnNo}">
                                 <li class="${param.crtPage eq i?'selected':''}"><a
-                                        href="/${main.id}/${pl.cateNo}?crtPage=${i}">${i}</a></li>
+                                        href="${pageContext.request.contextPath}/${main.id}/${postList.cateNo}?crtPage=${i}">${i}</a></li>
                             </c:forEach>
 
-                            <c:if test="${pl.next}">
-                                <li><a href="/${main.id}/${pl.cateNo}?crtPage=${pl.endPageBtnNo+1}">▶</a></li>
+                            <c:if test="${postList.next}">
+                                <li><a href="${pageContext.request.contextPath}/${main.id}/${postList.cateNo}?crtPage=${postList.endPageBtnNo+1}">▶</a></li>
                             </c:if>
                         </ul>
                     </div>
@@ -174,7 +174,7 @@
         <h2>카테고리</h2>
         <ul>
             <c:forEach items="${cate}" var="vo">
-                <li><a href="/${main.id}/${vo.cateNo}">${vo.cateName}</a></li>
+                <li><a href="${pageContext.request.contextPath}/${main.id}/${vo.cateNo}">${vo.cateName}</a></li>
             </c:forEach>
         </ul>
     </div>

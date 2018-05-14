@@ -18,12 +18,12 @@
     <div id="wrapper">
         <div id="content" class="full-screen">
             <ul class="admin-menu">
-                <li class="selected"><a href="/${authUser.id}/admin/basic">기본설정</a></li>
-                <li><a href="/${authUser.id}/admin/category">카테고리</a></li>
-                <li><a href="/${authUser.id}/admin/write">글작성</a></li>
+                <li class="selected"><a href="${pageContext.request.contextPath}/${authUser.id}/admin/basic">기본설정</a></li>
+                <li><a href="${pageContext.request.contextPath}/${authUser.id}/admin/category">카테고리</a></li>
+                <li><a href="${pageContext.request.contextPath}/${authUser.id}/admin/write">글작성</a></li>
             </ul>
 
-            <form action="/${authUser.id}/basicmod" method="post" enctype="multipart/form-data">
+            <form action="${pageContext.request.contextPath}/${authUser.id}/basicmod" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="${authUser.id}">
                 <table class="admin-config">
                     <tr>

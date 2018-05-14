@@ -10,6 +10,23 @@
         <result column="logofile" property="logoFile" />
     </resultMap>
 
+    <select id="blog_Search" parameterType="Map" resultMap="rm">
+        <![CDATA[
+        SELECT ID, BLOGTITLE FROM BLOG
+        WHERE
+        ]]>
+        <if test="which == 'blog-title'">
+        <![CDATA[
+        BLOGTITLE LIKE '%'||#{keyword}||'%'
+        ]]>
+        </if>
+        <if test="which == 'blog-user'">
+        <![CDATA[
+        ID LIKE '%'||#{keyword}||'%'
+        ]]>
+        </if>
+    </select>
+
     <insert id="new" parameterType="BlogVo">
         <![CDATA[
         INSERT

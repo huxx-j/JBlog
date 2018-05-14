@@ -27,7 +27,12 @@ public class BlogService {
         return blogDao.main(id);
     }
 
-
+    public List<BlogVo> blog_Search(String keyword, String which) {
+        Map<String, String> map = new HashMap<>();
+        map.put("keyword", keyword);
+        map.put("which", which);
+        return blogDao.blog_Search(map);
+    }
 
     public void basicModify(BlogVo blogVo, MultipartFile file) {
         if (!file.isEmpty()) {

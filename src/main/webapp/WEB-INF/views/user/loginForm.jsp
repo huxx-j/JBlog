@@ -13,7 +13,7 @@
 
 		<c:import url="/WEB-INF/views/includes/header.jsp"/>
 		
-		<form class="login-form" method="post" action="/user/log_in">
+		<form class="login-form" method="post" action="${pageContext.request.contextPath}/user/log_in">
 			<input type="hidden" name="b_id" value="${id}">
       		<label>아이디</label> 
       		<input type="text" name="id">

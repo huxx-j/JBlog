@@ -29,8 +29,8 @@ public class BlogController {
     public String blogMain(@PathVariable String id, Model model, @RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
         model.addAttribute("main",blogService.main(id)); //블로그 기본 정보 불러오기(타이틀,로고)
         model.addAttribute("cate",categoryService.category(id)); //카테고리 불러오기
-        model.addAttribute("pl",postService.getList(id, crtPage)); //1 메인 포스트 리스트
-        model.addAttribute("p",postService.getLastestPost(id)); //2 가장 최근 포스트 불러오기
+        model.addAttribute("postList",postService.getList(id, crtPage)); //1 메인 포스트 리스트
+        model.addAttribute("post",postService.getLastestPost(id)); //2 가장 최근 포스트 불러오기
         return "blog/blog-main";
     }
 
@@ -38,8 +38,8 @@ public class BlogController {
     public String getCatePostList(@PathVariable String id, @PathVariable int cateNo, Model model, @RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
         model.addAttribute("main",blogService.main(id));
         model.addAttribute("cate",categoryService.category(id));
-        model.addAttribute("pl", postService.getList(cateNo, crtPage)); //3 카테고리 포스트 리스트 불러오기
-        model.addAttribute("p",postService.getCatePost(cateNo,0));  //4 카테고리 포스트 가져오기
+        model.addAttribute("postList", postService.getList(cateNo, crtPage)); //3 카테고리 포스트 리스트 불러오기
+        model.addAttribute("post",postService.getCatePost(cateNo,0));  //4 카테고리 포스트 가져오기
 
         return "blog/blog-main";
     }
@@ -48,8 +48,8 @@ public class BlogController {
     public String getPost(@PathVariable String id, @PathVariable int postNo, @PathVariable int cateNo, Model model, @RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
         model.addAttribute("main",blogService.main(id));
         model.addAttribute("cate",categoryService.category(id));
-        model.addAttribute("pl", postService.getList(cateNo, crtPage)); //3
-        model.addAttribute("p",postService.getCatePost(cateNo,postNo)); //4
+        model.addAttribute("postList", postService.getList(cateNo, crtPage)); //3
+        model.addAttribute("post",postService.getCatePost(cateNo,postNo)); //4
 
         return "blog/blog-main";
     }

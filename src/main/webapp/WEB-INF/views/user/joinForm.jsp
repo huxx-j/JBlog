@@ -6,15 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JBlog</title>
-<link rel="stylesheet" href="/assets/css/jblog.css" type="text/css">
-<script type="text/javascript" src="/assets/js/jquery/jquery-1.12.4.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css" type="text/css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 </head>
 <body>
 	<div class="center-content">
 
 		<c:import url="/WEB-INF/views/includes/header.jsp"/>
 		
-		<form class="join-form" id="join-form" method="post" action="/user/add">
+		<form class="join-form" id="join-form" method="post" action="${pageContext.request.contextPath}/user/add">
 			<label class="block-label" for="name">이름</label>
 			<input type="text" name="userName"  value="" />
 			
@@ -70,7 +70,7 @@
         $.ajax({
             url : "/api/user/idcheck",
             type : "post",
-            data : {id : id},
+            data : {"id" : id},
             dataType : "json",
             success : function (isExists) {
                 if("x"==isExists){
