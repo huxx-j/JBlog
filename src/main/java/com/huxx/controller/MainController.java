@@ -18,7 +18,7 @@ public class MainController {
         return "/main/index";
     }
 
-    @RequestMapping(value = "/blog_search", method = RequestMethod.GET)
+    @RequestMapping(value = "/blog_search", method = RequestMethod.POST)
     public String blog_Search(@RequestParam("keyword") String keyword, @RequestParam("which") String which, Model model) {
         model.addAttribute("blog_s",blogService.blog_Search(keyword, which));
         return "/main/index";

@@ -40,7 +40,7 @@
 
     <c:import url="/WEB-INF/views/includes/header.jsp"/>
 
-    <form action="${pageContext.request.contextPath}/blog_search" method="get" class="search-form">
+    <form action="${pageContext.request.contextPath}/blog_search" method="post" class="search-form">
         <fieldset>
             <input type="text" name="keyword" value="${param.keyword}"/>
             <input id="s_Btn" type="submit" value="검색"/>
@@ -79,6 +79,17 @@
     $(document).ready(function () {
        if ("" == $("[name=keyword]").val()){
            $(".no_Result").remove();
+       }
+    });
+
+    $("#s_Btn").on("click",function () {
+        var spe_Char = /[`~!@#$%^&*()_+|]/; //금지할 특수문자 리스트([]안에 넣어주면 됨)
+       if ($("[name=keyword]").val()=="") {
+           alert("검색할 단어를 입력하세요.");
+           return false;
+       } else if(spe_Char.test($("[name=keyword]").val())) { //특수문자가 들어간 문자열을 검색못하게 하는 코드
+           alert("특수문자는 검색하실수 없습니다.");
+           return false;
        }
     });
 
