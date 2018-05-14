@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cmt">
+
+    <resultMap type="CommentVo" id="rm">
+        <result column="cmtno" property="cmtNo" />
+        <result column="postno" property="postNo" />
+        <result column="userno" property="userNo" />
+        <result column="cmtcontent" property="cmtContent" />
+        <result column="regdate" property="regDate" />
+        <result column="username" property="userName" />
+    </resultMap>
+
+    <insert id="addCmt" parameterType="CommentVo">
+        <selectKey keyProperty="cmtNo" resultType="int" order="BEFORE">
+            SELECT SEQ_COMMENTS_NO.nextval FROM DUAL
+        </selectKey>
+        <![CDATA[
+        INSERT
+        INTO
+        COMMENTS
+        VALUES (
+        #{cmtNo},
+        #{postNo},
+        #{userNo},
+        #{cmtContent},
+        CURRENT_DATE
+        )
+        ]]>
+    </insert>
+
+    <select id="select" parameterType="int" resultMap="rm">
+        <![CDATA[
+        SELECT c.CMTNO,
+          c.POSTNO,
+          c.USERNO,
+          u.USERNAME,
+          c.CMTCONTENT,
+          to_char(c.REGDATE, 'yyyy/mm/dd') regdate
+        FROM COMMENTS c, USERS u
+        WHERE CMTNO = #{cmtNo} AND c.USERNO = u.USERNO
+        ]]>
+    </select>
+
+    <select id="getList" parameterType="int" resultMap="rm">
+        <![CDATA[
+        SELECT c.CMTNO,
+        c.POSTNO,
+        c.USERNO,
+        u.USERNAME,
+        c.CMTCONTENT,
+        to_char(c.REGDATE, 'yyyy/mm/dd') regdate
+        FROM COMMENTS c, USERS u
+        WHERE POSTNO = #{postNo} and c.USERNO=u.USERNO
+        ORDER BY c.REGDATE DESC
+        ]]>
+    </select>
+
+    <delete id="del" parameterType="int">
+        <![CDATA[
+        DELETE
+        FROM COMMENTS
+        WHERE CMTNO = #{cmtNo}
+        ]]>
+    </delete>
+</mapper>

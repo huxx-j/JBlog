@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="post">
+
+    <resultMap type="PostVo" id="rm">
+        <result column="postno" property="postNo" />
+        <result column="cateno" property="cateNo" />
+        <result column="posttitle" property="postTitle" />
+        <result column="regdate" property="regDate" />
+    </resultMap>
+
+    <select id="getList" parameterType="Map" resultMap="rm">
+        <![CDATA[
+        SELECT num, POSTNO, POSTTITLE, REGDATE, CATENO
+          FROM (
+            SELECT ROWNUM num, t.POSTNO, t.POSTTITLE, t.REGDATE, t.CATENO
+              FROM (
+                SELECT POSTNO,POSTTITLE,to_char(REGDATE, 'yyyy/mm/dd') REGDATE, CATENO FROM POST WHERE CATENO=#{cateNo} ORDER BY POSTNO DESC ) t)
+        WHERE num
+        BETWEEN #{begin} and #{end}
+        ]]>
+    </select>
+
+    <select id="count" parameterType="int" resultType="int">
+        <![CDATA[
+          SELECT
+            COUNT(POSTNO)
+          FROM POST
+          WHERE CATENO=#{cateNo}
+        ]]>
+    </select>
+
+    <insert id="addPost" parameterType="PostVo">
+        <![CDATA[
+        INSERT
+          INTO POST
+            VALUES (
+            SEQ_POST_NO.nextval,
+            #{cateNo},
+            #{postTitle},
+            #{postContent},
+            CURRENT_DATE
+            )
+        ]]>
+    </insert>
+
+    <!--카테고리 클릭시 포스트 리스트-->
+    <select id="getCPL" parameterType="int" resultMap="rm">
+        <![CDATA[
+        SELECT
+          POSTNO,
+          POSTTITLE,
+          REGDATE,
+--           to_char(REGDATE, 'yyyy/mm/dd') regdate,
+          CATENO
+        FROM POST
+        WHERE CATENO=#{cateNo}
+        ORDER BY POSTNO DESC
+        ]]>
+    </select>
+
+    <!--카테고리 포스트 (카테고리 클릭시 최근글)-->
+    <select id="getCP" parameterType="Map" resultMap="rm">
+        <![CDATA[
+        SELECT *
+            FROM (
+              SELECT ROWNUM num, t.*
+              FROM (
+                     SELECT POSTNO, POSTTITLE, POSTCONTENT FROM POST
+                     WHERE CATENO=#{cateNo}]]>
+                     <if test="postNo!=0">
+                    <![CDATA[
+                        and postno=#{postNo}
+                    ]]>
+                </if>
+                <![CDATA[
+                    ORDER BY REGDATE desc) t)
+                ]]>
+               <if test="postNo==0">
+                    <![CDATA[
+                        WHERE num = 1
+                    ]]>
+               </if>
+
+    </select>
+</mapper>

@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@jblog">
+  <database-model serializer="dbm" rdbms="ORACLE" format-version="4.7">
+    <root id="1"/>
+    <schema id="2" parent="1" name="JBLOG">
+      <ObjectId>69</ObjectId>
+      <IntrospectionTimestamp>2018-05-08.19:49:20</IntrospectionTimestamp>
+      <CreatedTimestamp>2018-05-08.17:36:54</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-08.18:01:17</ModifiedTimestamp>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="PUBLIC">
+      <ObjectId>1</ObjectId>
+    </schema>
+    <schema id="4" parent="1" name="SYS">
+      <ObjectId>0</ObjectId>
+    </schema>
+    <schema id="5" parent="1" name="AUDSYS">
+      <ObjectId>7</ObjectId>
+    </schema>
+    <schema id="6" parent="1" name="SYSTEM">
+      <ObjectId>8</ObjectId>
+    </schema>
+    <schema id="7" parent="1" name="OUTLN">
+      <ObjectId>13</ObjectId>
+    </schema>
+    <schema id="8" parent="1" name="GSMADMIN_INTERNAL">
+      <ObjectId>21</ObjectId>
+    </schema>
+    <schema id="9" parent="1" name="GSMUSER">
+      <ObjectId>22</ObjectId>
+    </schema>
+    <schema id="10" parent="1" name="DIP">
+      <ObjectId>23</ObjectId>
+    </schema>
+    <schema id="11" parent="1" name="DBSNMP">
+      <ObjectId>48</ObjectId>
+    </schema>
+    <schema id="12" parent="1" name="APPQOSSYS">
+      <ObjectId>49</ObjectId>
+    </schema>
+    <schema id="13" parent="1" name="XDB">
+      <ObjectId>50</ObjectId>
+    </schema>
+    <schema id="14" parent="1" name="ANONYMOUS">
+      <ObjectId>51</ObjectId>
+    </schema>
+    <schema id="15" parent="1" name="GSMCATUSER">
+      <ObjectId>61</ObjectId>
+    </schema>
+    <schema id="16" parent="1" name="CTXSYS">
+      <ObjectId>62</ObjectId>
+    </schema>
+    <schema id="17" parent="1" name="RDSADMIN">
+      <ObjectId>64</ObjectId>
+    </schema>
+    <schema id="18" parent="1" name="HUXX">
+      <ObjectId>67</ObjectId>
+    </schema>
+    <schema id="19" parent="1" name="WEBDB">
+      <ObjectId>68</ObjectId>
+    </schema>
+    <schema id="20" parent="1" name="SYSBACKUP">
+      <ObjectId>2147483617</ObjectId>
+    </schema>
+    <schema id="21" parent="1" name="SYSDG">
+      <ObjectId>2147483618</ObjectId>
+    </schema>
+    <schema id="22" parent="1" name="SYSKM">
+      <ObjectId>2147483619</ObjectId>
+    </schema>
+    <schema id="23" parent="1" name="XS$NULL">
+      <ObjectId>2147483638</ObjectId>
+    </schema>
+    <sequence id="24" parent="2" name="SEQ_CATEGORY_NO">
+      <ObjectId>23211</ObjectId>
+      <CreatedTimestamp>2018-05-08.18:00:50</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-08.18:00:50</ModifiedTimestamp>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>-2147483648</CacheSize>
+    </sequence>
+    <sequence id="25" parent="2" name="SEQ_COMMENTS_NO">
+      <ObjectId>23213</ObjectId>
+      <CreatedTimestamp>2018-05-08.18:01:17</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-08.18:01:17</ModifiedTimestamp>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>-2147483648</CacheSize>
+    </sequence>
+    <sequence id="26" parent="2" name="SEQ_POST_NO">
+      <ObjectId>23212</ObjectId>
+      <CreatedTimestamp>2018-05-08.18:01:05</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-08.18:01:05</ModifiedTimestamp>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>-2147483648</CacheSize>
+    </sequence>
+    <sequence id="27" parent="2" name="SEQ_USERS_NO">
+      <ObjectId>23210</ObjectId>
+      <CreatedTimestamp>2018-05-08.18:00:29</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-08.18:00:29</ModifiedTimestamp>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>-2147483648</CacheSize>
+    </sequence>
+    <table id="28" parent="2" name="BLOG">
+      <ObjectId>23202</ObjectId>
+      <CreatedTimestamp>2018-05-08.17:47:56</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-08.17:47:56</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="29" parent="2" name="CATEGORY">
+      <ObjectId>23204</ObjectId>
+      <CreatedTimestamp>2018-05-08.17:50:08</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-08.17:50:08</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="30" parent="2" name="COMMENTS">
+      <ObjectId>23208</ObjectId>
+      <CreatedTimestamp>2018-05-08.17:55:36</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-08.17:55:36</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="31" parent="2" name="POST">
+      <ObjectId>23206</ObjectId>
+      <CreatedTimestamp>2018-05-08.17:52:47</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-08.17:52:47</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="32" parent="2" name="USERS">
+      <ObjectId>23195</ObjectId>
+      <CreatedTimestamp>2018-05-08.17:36:54</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-08.17:36:54</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <column id="33" parent="28" name="ID">
+      <Position>1</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="28" name="BLOGTITLE">
+      <Position>2</Position>
+      <DataType>VARCHAR2(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="28" name="LOGOFILE">
+      <Position>3</Position>
+      <DataType>VARCHAR2(200)|0</DataType>
+    </column>
+    <index id="36" parent="28" name="SYS_C005315">
+      <ObjectId>23203</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-08.17:47:56</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-08.17:47:56</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="37" parent="28" name="SYS_C005315">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-05-08.17:47:56</ModifiedTimestamp>
+      <ColNames>ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C005315</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="38" parent="28" name="BLOG_ID_FK">
+      <ModifiedTimestamp>2018-05-08.17:47:56</ModifiedTimestamp>
+      <ColNames>ID</ColNames>
+      <RefSchemaName>JBLOG</RefSchemaName>
+      <RefTableName>USERS</RefTableName>
+      <RefKeyName>SYS_C005308</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="39" parent="29" name="CATENO">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="29" name="ID">
+      <Position>2</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+    </column>
+    <column id="41" parent="29" name="CATENAME">
+      <Position>3</Position>
+      <DataType>VARCHAR2(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="29" name="DESCRIPTION">
+      <Position>4</Position>
+      <DataType>VARCHAR2(500)|0</DataType>
+    </column>
+    <column id="43" parent="29" name="REGDATE">
+      <Position>5</Position>
+      <DataType>DATE|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="44" parent="29" name="SYS_C005319">
+      <ObjectId>23205</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-08.17:50:08</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-08.17:50:08</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>CATENO</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="45" parent="29" name="SYS_C005319">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-05-08.17:50:08</ModifiedTimestamp>
+      <ColNames>CATENO</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C005319</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="46" parent="29" name="CATEGORY_ID_FK">
+      <ModifiedTimestamp>2018-05-08.17:50:08</ModifiedTimestamp>
+      <ColNames>ID</ColNames>
+      <RefSchemaName>JBLOG</RefSchemaName>
+      <RefTableName>BLOG</RefTableName>
+      <RefKeyName>SYS_C005315</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="47" parent="30" name="CMTNO">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="30" name="POSTNO">
+      <Position>2</Position>
+      <DataType>NUMBER(*)|0</DataType>
+    </column>
+    <column id="49" parent="30" name="USERNO">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0</DataType>
+    </column>
+    <column id="50" parent="30" name="CMTCONTENT">
+      <Position>4</Position>
+      <DataType>VARCHAR2(1000)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="30" name="REGDATE">
+      <Position>5</Position>
+      <DataType>DATE|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="52" parent="30" name="SYS_C005327">
+      <ObjectId>23209</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-08.17:55:36</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-08.17:55:36</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>CMTNO</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="53" parent="30" name="SYS_C005327">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-05-08.17:55:36</ModifiedTimestamp>
+      <ColNames>CMTNO</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C005327</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="54" parent="30" name="COMMENT_POSTNO_FK">
+      <ModifiedTimestamp>2018-05-08.17:55:36</ModifiedTimestamp>
+      <ColNames>POSTNO</ColNames>
+      <RefSchemaName>JBLOG</RefSchemaName>
+      <RefTableName>POST</RefTableName>
+      <RefKeyName>SYS_C005323</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <foreign-key id="55" parent="30" name="COMMENT_USERNO_FK">
+      <ModifiedTimestamp>2018-05-08.17:55:36</ModifiedTimestamp>
+      <ColNames>USERNO</ColNames>
+      <RefSchemaName>JBLOG</RefSchemaName>
+      <RefTableName>USERS</RefTableName>
+      <RefKeyName>SYS_C005307</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="56" parent="31" name="POSTNO">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="31" name="CATENO">
+      <Position>2</Position>
+      <DataType>NUMBER(*)|0</DataType>
+    </column>
+    <column id="58" parent="31" name="POSTTITLE">
+      <Position>3</Position>
+      <DataType>VARCHAR2(300)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="31" name="POSTCONTENT">
+      <Position>4</Position>
+      <DataType>VARCHAR2(4000)|0</DataType>
+    </column>
+    <column id="60" parent="31" name="REGDATE">
+      <Position>5</Position>
+      <DataType>DATE|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="61" parent="31" name="SYS_C005323">
+      <ObjectId>23207</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-08.17:52:47</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-08.17:52:47</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>POSTNO</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="62" parent="31" name="SYS_C005323">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-05-08.17:52:47</ModifiedTimestamp>
+      <ColNames>POSTNO</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C005323</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="63" parent="31" name="POST_CATENO_FK">
+      <ModifiedTimestamp>2018-05-08.17:52:47</ModifiedTimestamp>
+      <ColNames>CATENO</ColNames>
+      <RefSchemaName>JBLOG</RefSchemaName>
+      <RefTableName>CATEGORY</RefTableName>
+      <RefKeyName>SYS_C005319</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="64" parent="32" name="USERNO">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="32" name="ID">
+      <Position>2</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="32" name="USERNAME">
+      <Position>3</Position>
+      <DataType>VARCHAR2(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="67" parent="32" name="PASSWORD">
+      <Position>4</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="32" name="JOINDATE">
+      <Position>5</Position>
+      <DataType>DATE|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="69" parent="32" name="SYS_C005307">
+      <ObjectId>23196</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-08.17:36:54</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-08.17:36:54</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>USERNO</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="70" parent="32" name="SYS_C005308">
+      <ObjectId>23197</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-05-08.17:36:54</CreatedTimestamp>
+      <ModifiedTimestamp>2018-05-08.17:36:54</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="71" parent="32" name="SYS_C005307">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-05-08.17:36:54</ModifiedTimestamp>
+      <ColNames>USERNO</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C005307</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="72" parent="32" name="SYS_C005308">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-05-08.17:36:54</ModifiedTimestamp>
+      <ColNames>ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C005308</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>

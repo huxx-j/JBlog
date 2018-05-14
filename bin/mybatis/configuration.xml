@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+        <typeAlias alias="UserVo" type="com.huxx.vo.UserVo" />
+        <typeAlias alias="BlogVo" type="com.huxx.vo.BlogVo" />
+        <typeAlias alias="CategoryVo" type="com.huxx.vo.CategoryVo" />
+        <typeAlias alias="PostVo" type="com.huxx.vo.PostVo" />
+        <typeAlias alias="CommentVo" type="com.huxx.vo.CommentVo" />
+    </typeAliases>
+    <mappers>
+        <mapper resource="mybatis/mappers/user.xml" />
+        <mapper resource="mybatis/mappers/blog.xml" />
+        <mapper resource="mybatis/mappers/cate.xml" />
+        <mapper resource="mybatis/mappers/post.xml" />
+        <mapper resource="mybatis/mappers/cmt.xml" />
+        <!--<mapper resource="mybatis/mappers/guest.xml" />-->
+    </mappers>
+</configuration>

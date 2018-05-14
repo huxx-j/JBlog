@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cate">
+
+    <resultMap type="CategoryVo" id="rm">
+        <result column="cateno" property="cateNo" />
+        <result column="id" property="id" />
+        <result column="catename" property="cateName" />
+        <result column="description" property="description" />
+        <result column="postcnt" property="postCnt" />
+    </resultMap>
+
+    <select id="category" parameterType="String" resultMap="rm">
+        <![CDATA[
+        SELECT
+          CATENO,
+          CATENAME
+        FROM CATEGORY
+        WHERE ID=#{id}
+        ORDER BY REGDATE DESC
+        ]]>
+    </select>
+
+    <select id="getFirstCate" parameterType="String" resultType="int">
+        <![CDATA[
+        SELECT CATENO
+          FROM (
+            SELECT ROWNUM num, t.CATENO
+              FROM (
+                     SELECT
+                      CATENO
+                    FROM CATEGORY
+                    WHERE ID=#{id}
+                    ORDER BY REGDATE DESC) t)
+        WHERE num = 1
+        ]]>
+    </select>
+
+    <delete id="del" parameterType="int">
+        <![CDATA[
+        DELETE
+          FROM CATEGORY
+            WHERE CATENO=#{cateNo}
+        ]]>
+
+    </delete>
+
+    <insert id="add" parameterType="CategoryVo">
+        <![CDATA[
+        INSERT
+          INTO CATEGORY
+            VALUES (
+              SEQ_CATEGORY_NO.nextval,
+
+            )
+        ]]>
+    </insert>
+
+    <insert id="create" parameterType="CategoryVo">
+        <selectKey keyProperty="cateNo" resultType="int" order="BEFORE">
+            SELECT SEQ_CATEGORY_NO.nextval FROM DUAL
+        </selectKey>
+        <![CDATA[
+        INSERT
+          INTO CATEGORY
+            VALUES (
+              #{cateNo},
+              #{id},
+              #{cateName},
+              #{description},
+              CURRENT_DATE)
+        ]]>
+    </insert>
+
+    <!--ajax추가-->
+    <select id="ajaxAdd" parameterType="int" resultMap="rm">
+        <![CDATA[
+        SELECT
+            CATENO,
+            CATENAME,
+            (SELECT
+              COUNT(POSTNO)
+               FROM POST
+                WHERE POST.CATENO=CATEGORY.CATENO )postcnt,
+            DESCRIPTION
+        FROM CATEGORY
+          WHERE CATENO = #{cateNo}
+        ]]>
+    </select>
+
+    <!--list뿌리는 쿼리-->
+    <select id="cateModify" parameterType="String" resultMap="rm">
+        <![CDATA[
+        SELECT
+            CATENO,
+            CATENAME,
+            (SELECT
+              COUNT(POSTNO)
+               FROM POST
+                WHERE POST.CATENO=CATEGORY.CATENO )postcnt,
+            DESCRIPTION
+        FROM CATEGORY
+          WHERE ID = #{id}
+          ORDER BY REGDATE ASC
+        ]]>
+    </select>
+
+</mapper>
